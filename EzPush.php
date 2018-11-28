@@ -10,7 +10,7 @@ class EzPush
     /**
      * @var string 推播伺服器位址
      */
-    public static $ServerAddress = "https://example.com/push/v1/";
+    public static $ServerAddress = "https://localhost/push/v1/";
     /**
      * @var string 存取權杖，可於推播伺服器產生
      */
@@ -21,8 +21,27 @@ class EzPush
      * @param string $_bundleid
      * @param string $_subscriber
      * @param Message $_message
+     * @return array 回傳陣列物件，或失敗為null
      */
     public static function Push($_message,$_subscriber,$_bundleid){
-
+        $curl = new \Curl\Curl();
+        $curl->setHeader("Authorization","Bearer ". EzPush::$ApiAccessKey);
+        $payload = json_encode([
+                'title'=>$_message->title,
+                'body'=>$_message->body,
+                'extra'=>$_message->extra
+            ]);
+        $curl->post(EzPush::$ServerAddress . "messages", [
+                'bundleid' => $_bundleid,
+                'subscriber' => $_subscriber,
+                'payload' => $payload,
+            ]
+        );
+        if ($curl->error) {
+            return null;
+        }
+        else {
+            return json_decode($curl->response);
+        }
     }
 }

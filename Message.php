@@ -30,4 +30,17 @@ class Message
      *  ]
      */
     public $extra = [];
+
+    /**
+     *  轉換payload資料為伺服器json
+     * @return string JSON資料
+     */
+    public function toJson(){
+        $payload = json_encode([
+            'title'=>$this->title,
+            'body'=>$this->body,
+            'extra'=>$this->extra
+        ]);
+        return $payload;
+    }
 }

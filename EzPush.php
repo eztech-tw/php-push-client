@@ -26,15 +26,10 @@ class EzPush
     public static function Push($_message,$_subscriber,$_bundleid){
         $curl = new \Curl\Curl();
         $curl->setHeader("Authorization","Bearer ". EzPush::$ApiAccessKey);
-        $payload = json_encode([
-                'title'=>$_message->title,
-                'body'=>$_message->body,
-                'extra'=>$_message->extra
-            ]);
         $curl->post(EzPush::$ServerAddress . "messages", [
                 'bundleid' => $_bundleid,
                 'subscriber' => $_subscriber,
-                'payload' => $payload,
+                'payload' => $_message->toJson(),
             ]
         );
         if ($curl->error) {

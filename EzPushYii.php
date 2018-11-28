@@ -22,6 +22,10 @@ class EzPushYii extends \yii\base\Component
      * @var string 存取權杖，可於推播伺服器產生
      */
     public $ApiAccessKey = "ApiAccessKey";
+    /**
+     * @var string 存取權杖，可於推播伺服器產生
+     */
+    public $Bundleid = "Bundleid";
 
     /**
      * 發送推播，請先建立一個 Message 物件來傳送
@@ -30,10 +34,10 @@ class EzPushYii extends \yii\base\Component
      * @param Message $_message
      * @return array 回傳陣列物件，或失敗為null
      */
-    public function Push($_message,$_subscriber,$_bundleid){
+    public function Push($_message,$_subscriber){
         EzPush::$ServerAddress=$this->ServerAddress;
         EzPush::$ApiAccessKey=$this->ApiAccessKey;
-        return EzPush::Push($_message,$_subscriber,$_bundleid);
+        return EzPush::Push($_message,$_subscriber,$this->Bundleid);
     }
 
     /**

@@ -36,7 +36,29 @@ class EzPush
             return null;
         }
         else {
-            return json_decode($curl->response);
+            return json_decode($curl->response, true);
+        }
+    }
+
+    /**
+     * 取得 Bundleid 列表，伺服器無法連線將回傳null
+     * ["Bundleid"=>"說明"]
+     * @return array
+     */
+    public static function BundleidList(){
+        $curl = new \Curl\Curl();
+        $curl->setHeader("Authorization","Bearer ". EzPush::$ApiAccessKey);
+        $curl->get(EzPush::$ServerAddress . "bundleids");
+        if ($curl->error) {
+            return null;
+        }
+        else {
+            $bids = json_decode($curl->response, true);
+            $bid_out = [];
+            foreach ($bids as $bid){
+                $bid_out[$bid['bundleid']] = $bid['description'];
+            }
+            return $bid_out;
         }
     }
 }

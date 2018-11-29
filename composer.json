@@ -1,5 +1,5 @@
 {
-    "name": "scott1984/ezpush",
+    "name": "eztech-tw/php-push-client",
     "description": "EzTech PHP Push Helper",
     "type": "library",
     "keywords": ["EzTech","yii2","extension"],

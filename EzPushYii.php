@@ -17,7 +17,7 @@ class EzPushYii extends \yii\base\Component
     /**
      * @var string 推播伺服器位址
      */
-    public $ServerAddress = "https://localhost/push/v1/";
+    public $ServerAddress = "https://localhost/push/";
     /**
      * @var string 存取權杖，可於推播伺服器產生
      */

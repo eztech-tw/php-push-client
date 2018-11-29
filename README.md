@@ -28,7 +28,7 @@ php composer.phar require --prefer-dist scott1984/ezpush "*"
 'components' => [
     'EzPush'=>[
         'class' => 'scott1984\ezpush\EzPushYii',
-        'ServerAddress' => 'http://localhost/push/v1/',
+        'ServerAddress' => 'http://localhost/push/',
         'ApiAccessKey' => 'ue6yJxEnTG5SBhTooD758O4b7wyE417a',
         'Bundleid' => 'assetmanager.pj',
     ],
@@ -54,7 +54,7 @@ $response = Yii::$app->EzPush->Push($Msg,"使用者識別");
 ````
 use scott1984\ezpush\EzPush;
 use scott1984\ezpush\Message;
-EzPush::$ServerAddress = "http://localhost/push/v1/";
+EzPush::$ServerAddress = "http://localhost/push/";
 EzPush::$ApiAccessKey = "ue6yJxEnTG5SBhTooD758O4b7wyE417a";
 ````
 

@@ -10,13 +10,13 @@ EzTech PHP Push Helper
 執行
 
 ```
-php composer.phar require --prefer-dist scott1984/ezpush "*"
+php composer.phar require --prefer-dist eztech-tw/php-push-client "*"
 ```
 
 或增加
 
 ```
-"scott1984/ezpush": "*"
+"eztech-tw/php-push-client": "*"
 ```
 
 到你的 `composer.json` 檔案中

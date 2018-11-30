@@ -28,8 +28,8 @@ php composer.phar require --prefer-dist eztech-tw/php-push-client "*"
 <br>
 設定推播伺服器位址和存取權杖，存取權杖可於推播伺服器上頁面產生
 ````
-use scott1984\ezpush\EzPush;
-use scott1984\ezpush\Message;
+use eztechtw\ezpush\EzPush;
+use eztechtw\ezpush\Message;
 EzPush::$ServerAddress = "http://localhost/push/";
 EzPush::$ApiAccessKey = "ue6yJxEnTG5SBhTooD758O4b7wyE417a";
 ````

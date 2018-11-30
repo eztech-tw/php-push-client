@@ -1,6 +1,6 @@
 <?php
 
-namespace scott1984\ezpush;
+namespace eztechtw\ezpush;
 
 /**
  * 推播訊息之輔助類別

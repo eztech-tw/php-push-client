@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "scott1984\\ezpush\\": ""
+            "eztechtw\\ezpush\\": ""
         }
     }
 }

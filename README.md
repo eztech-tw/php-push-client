@@ -1,8 +1,8 @@
 EzTech PHP Push Helper
 ======================
 EzTech PHP Push Helper<br>
-[![Latest Stable Version](https://img.shields.io/packagist/v/eztech-tw/php-push-client.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://img.shields.io/packagist/dt/eztech-tw/php-push-client.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
+[![Latest Stable Version](https://img.shields.io/packagist/v/eztech-tw/php-push-client.svg)](https://packagist.org/packages/eztech-tw/php-push-client.svg)
+[![Total Downloads](https://img.shields.io/packagist/dt/eztech-tw/php-push-client.svg)](https://packagist.org/packages/eztech-tw/php-push-client.svg)
 
 安裝
 ----

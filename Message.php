@@ -17,6 +17,11 @@ class Message
     public $body = "";
 
     /**
+     * @var int 未讀數量
+     */
+    public $badge = null;
+
+    /**
      * @var array 額外payload資訊，以巢狀陣列(物件)傳入，如
      *  [
      *      "priority" => "normal",
@@ -36,11 +41,15 @@ class Message
      * @return string JSON資料
      */
     public function toJson(){
-        $payload = json_encode([
+        if(isset($badge)){
+            $this->extra['badge'] = $badge;
+        }
+        $payload = [
             'title'=>$this->title,
             'body'=>$this->body,
             'extra'=>$this->extra
-        ]);
+        ];
+        $payload = json_encode($payload);
         return $payload;
     }
 }

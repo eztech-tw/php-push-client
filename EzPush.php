@@ -61,4 +61,52 @@ class EzPush
             return $bid_out;
         }
     }
+
+    /**
+ * 上傳使用者Token
+ * @param string $_bundleid
+ * @param string $_subscriber
+ * @param string $_token
+ * @param string $_platform
+ * @return array 回傳陣列物件，或失敗為null
+ */
+    public static function addClientToken($_token,$_subscriber,$_bundleid,$_platform){
+        $curl = new \Curl\Curl();
+        $curl->setHeader("Authorization","Bearer ". EzPush::$ApiAccessKey);
+        $curl->post(EzPush::$ServerAddress . "v1/client-tokens", [
+                'bundleid' => $_bundleid,
+                'subscriber' => $_subscriber,
+                'token' => $_token,
+                'platform' => $_platform,
+            ]
+        );
+        if ($curl->error) {
+            return null;
+        }
+        else {
+            return json_decode($curl->response, true);
+        }
+    }
+
+    /**
+     * 全部標示已讀
+     * @param string $_bundleid
+     * @param string $_subscriber
+     * @return array 回傳陣列物件，或失敗為null
+     */
+    public static function markAllAsRead($_subscriber,$_bundleid){
+        $curl = new \Curl\Curl();
+        $curl->setHeader("Authorization","Bearer ". EzPush::$ApiAccessKey);
+        $curl->patch(EzPush::$ServerAddress . "v1/messages", [
+                'filter[bundleid]' => $_bundleid,
+                'filter[subscriber]' => $_subscriber,
+            ]
+        );
+        if ($curl->error) {
+            return null;
+        }
+        else {
+            return json_decode($curl->response, true);
+        }
+    }
 }

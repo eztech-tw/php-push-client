@@ -41,8 +41,8 @@ class Message
      * @return string JSON資料
      */
     public function toJson(){
-        if(isset($badge)){
-            $this->extra['badge'] = $badge;
+        if(isset($this->badge)){
+            $this->extra['badge'] = $this->badge;
         }
         $payload = [
             'title'=>$this->title,
